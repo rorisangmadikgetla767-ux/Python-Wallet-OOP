@@ -17,8 +17,8 @@ class InsufficientFundsError(Exception):
 class Wallet:
     def __init__(self, AccountHolder: str, balance: float = 0.0):
         self.AccountHolder = AccountHolder
-        self.balance = balance
-        self.history = []
+        self._balance = balance
+        self._history = []
         
     def deposit(self, amount: float):
         if amount <= 0:
