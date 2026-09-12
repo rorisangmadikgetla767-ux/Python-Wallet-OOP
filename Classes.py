@@ -12,4 +12,17 @@ class Transaction:
     
 class InsufficientFundsError(Exception):
     """Raised when a withdrawal exceeds the availble price."""
+    pass
+
+class Wallet:
+    def __init__(self, AccountHolder: str, balance: float = 0.0):
+        self.AccountHolder = AccountHolder
+        self.balance = balance
+        self.history = []
+        
+    def deposit(self, amount: float):
+        if amount <= 0:
+            raise ValueError("Deposit amounthas to be a positive number, not a negative one..")
+        self.balance += amount
+        self._history.append(Transaction(amount, "deposit"))
     
